@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+  <div class="container-fluid bg-1 text-center" id="mainContent"  style="background-image: url({% static "articles/a.jpg" %});">
+    <h3 style="color:black;"><big><b><i>ELECTRONIC HEALTH RECORD(EHR) ENCRYPTION SYSTEM</i></b></big></h3>
+  <!-- <h5>         ...the cloud's agent</h5> -->
+    <br>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">{{page_title}}</h3>
+                        </div>
+    
+                        <!-- /.card-header -->
+                        <div class="table-responsive">
+                            <table id="invoicetable" class="table table-bordered table-hover">
+                                <thead class="thead-light">
+                                    <tr >
+                                        <p align="right"> <a href="#" class="btn btn-tool" style="color: #4CAF50;" onclick="window.print()" ><b>Print</b></a></p>
+                                        <th>Patient ID</th>
+                                        <th>Patient Name</th>
+                                        <th>Purpose</th>
+                                        <th>Doctor Name</th>
+                                        <th>Patient Hward</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for p in patients %}
+                                    <tr class='clickable-row' data-href="{% url 'patient-detail' p.id %}">
+                                        <td>{{ p.id}}</td>
+                                        <td>{{p.patientName}}</td>
+                                        <td>{{ p.purpose}}</td>
+                                        <td>{{ p.doctorName}}</td>
+                                        <td>{{ p.patientHward}}</td>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        $('#invoicetable').DataTable({
+        });
+      </script>
+      
+
+
+
+{% endblock content %}

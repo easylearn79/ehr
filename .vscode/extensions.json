@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "billyokeyo.djangomodels",
+        "abusaidm.html-snippets",
+        "ecmel.vscode-html-css",
+        "zignd.html-css-class-completion",
+        "lonefy.vscode-js-css-html-formatter",
+        "formulahendry.auto-rename-tag"
+    ]
+}

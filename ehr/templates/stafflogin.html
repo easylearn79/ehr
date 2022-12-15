@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h3 style="color:black; text-align:center;"><big><b><i>ELECTRONIC HEALTH RECORD(EHR) ENCRYPTION SYSTEM</i></b></big></h3>
+  <!-- <h5>         ...the cloud's agent</h5> -->
+    <br>
+    <br/>
+
+<div class="container" id="mainContent"  style="width:750px; height:720px";>
+      <h2>  </h2>
+  <form action="{% url 'manage_patient' %}" method="get" class="form-horizontal" role="form">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="uid">User ID:</label>
+      <div class="col-sm-6">
+        <input type="text" oninput = "auth()" class="form-control" name="uid" placeholder="Enter User ID">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="username">User Name:</label>
+      <div class="col-sm-6">
+        <input type="text" oninput = "auth()" class="form-control" name="username" placeholder="Enter User Name">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Password:</label>
+      <div class="col-sm-6">          
+        <input type="password" class="form-control" name="password" placeholder="Enter password">
+      </div>
+    </div>
+
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-6">
+        <div class="checkbox">
+          <label><input type="checkbox"> Remember me</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-4">
+       <button id="btnSignIn" class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+<style>
+  .gradient-custom {
+    /* fallback for old browsers */
+    background: #f093fb;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1))
+    }
+    
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+    }
+    .card-registration .select-arrow {
+    top: 13px;
+    }
+</style>
+{% block content %}
+<body style="background-image: url({% static "articles/h.jpg" %});">
+  <h3 style="color:black; text-align:center;"><big><b><i>ELECTRONIC HEALTH RECORD(EHR) ENCRYPTION SYSTEM</i></b></big></h3>
+  <!-- <h5>         ...the cloud's agent</h5> -->
+    <br>
+<div class="container" id="mainContent"  style="width:750px; height:720px";>
+      <h2>  </h2>
+  <form action="{% url 'patientsignup_view' %}" method="get" class="form-horizontal" role="form">{%csrf_token%}
+   {{form.as_p}}
+
+   <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="submit">SUBMIT</button>
+
+  </form>
+</div>
+
+{% endblock content %}

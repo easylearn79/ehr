@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+  <div class="container-fluid bg-1 text-center" id="mainContent"  style="background-image: url({% static "articles/a.jpg" %});">
+    <h3 style="color:black;"><big><b><i>ELECTRONIC HEALTH RECORD(EHR) ENCRYPTION SYSTEM</i></b></big></h3>
+  <!-- <h5>         ...the cloud's agent</h5> -->
+    <br>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">{{page_title}}</h3>
+                        </div>
+    
+                        <!-- /.card-header -->
+                        <div class="table-responsive">
+                            <table id="invoicetable" class="table table-bordered table-hover">
+                                <thead class="thead-light">
+                                    <tr >
+                                        <p align="right"> <a href="#" class="btn btn-tool" style="color: #4CAF50;" onclick="window.print()" ><b>Print</b></a></p>
+                                        <th>Drug Name</th>
+                                        <th>Cost</th>
+                                        <th>Category</th>
+                                        <th>Selling Price</th>
+                                        <th>Qty</th>
+                                        <th>Man Date</th>
+                                        <th>Exp Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for p in ph %}
+                                    <tr>
+                                        <td>{{ p.Drug_name}}</td>
+                                        <td>{{p.Cost}}</td>
+                                        <td>{{ p.Category}}</td>
+                                        <td>{{ p.Selling_price}}</td>
+                                        <td>{{ p.Qty}}</td>
+                                        <td>{{ p.Man_date}}</td>
+                                        <td>{{ p.Exp_date}}</td>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        $('#invoicetable').DataTable({
+        });
+      </script>
+      
+
+
+
+{% endblock content %}

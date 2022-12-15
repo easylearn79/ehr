@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container" id="h1" style="background-image: url({% static "articles/h.jpg" %});">
+        {% with queryset.count as total_queryset %}
+        Found {{ total_queryset }} result{{ total_queryset|pluralize }}
+        {% endwith %}
+        <div class="container">
+            <div class="row">
+                {% for post in cons %}
+                <div class="col-md-4">
+                    <a class="text-dark" href="{{post.get_absolute_url}}">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="{{post.image_url}}" alt="Post Dynamic Image">
+                            <div class="card-body">
+                                <h1 style="font-size:18px;font-weight:bold">{{post.patientName|truncatechars:50}}</h1>
+                                <p class="card-text">{{post.doctorName|truncatechars:50}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% empty %}
+                <p>There are no results for your Search.</p>
+                {% endfor %}
+            </div>
+        </div>
+</div>
+
+{% endblock content %}
+

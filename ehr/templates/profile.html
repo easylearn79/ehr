@@ -1,0 +1,214 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> </title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/navbars/">
+    <link href="{% static 'assets/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'assets/images/fav.jpg' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/fontawsom-all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}" />
+    <style>
+        .bd-placeholder-img {
+          font-size: 1.125rem;
+          text-anchor: middle;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+        }
+  
+        @media (min-width: 768px) {
+          .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+          }
+        }
+  
+        .b-example-divider {
+          height: 3rem;
+          background-color: rgba(0, 0, 0, .1);
+          border: solid rgba(0, 0, 0, .15);
+          border-width: 1px 0;
+          box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+  
+        .b-example-vr {
+          flex-shrink: 0;
+          width: 1.5rem;
+          height: 100vh;
+        }
+  
+        .bi {
+          vertical-align: -.125em;
+          fill: currentColor;
+        }
+  
+        .nav-scroller {
+          position: relative;
+          z-index: 2;
+          height: 2.75rem;
+          overflow-y: hidden;
+        }
+  
+        .nav-scroller .nav {
+          display: flex;
+          flex-wrap: nowrap;
+          padding-bottom: 1rem;
+          margin-top: -1px;
+          overflow-x: auto;
+          text-align: center;
+          white-space: nowrap;
+          -webkit-overflow-scrolling: touch;
+        }
+      </style>
+    <link href="{% static 'assets/navbar.css' %}" rel="stylesheet">
+</head>
+
+<body>
+<main>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark" aria-label="Fourth navbar example">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'login' %}">Home</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    
+          <div class="collapse navbar-collapse" id="navbarsExample04">
+            <ul class="navbar-nav me-auto mb-4 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'manage_patient' %}">Patient Files</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'staffsignup' %}">Staff Sign Up</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'stafflogin' %}">Staff Sign In</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'patientsignup' %}">Patient Sign Up</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'patientlogin' %}">Patient Sign In</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Card/Record-Unit</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'consult' %}">Consultant Unit</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Pharmacy Unit</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+</main>
+    <div class="container-fluid overcover">
+        <div class="container profile-box">
+            <div class="row">
+                <div class="col-lg-4 col-md-5 leftgh">
+                    <div class="image-box">
+                        <img src="{% static 'assets/images/profile.jpg' %}" alt="">
+                    </div>
+                    <div class="name-info">
+                        <h3>Patient Name: {{object.patientName}}</h3>
+
+                        <div class="row no-margin">
+                            <div class="col-8 no-padding">
+                                MARITALSTATUS: 
+                            </div>
+                            <div class="col-6">
+                              {{object.Marital_status}}
+                            </div>
+                        </div>
+                        <div class="row no-margin">
+                            <div class="col-4 no-padding">
+                                GENDER: 
+                            </div>
+                            <div class="col-8">
+                                {{object.Gender}} 
+                            </div>
+                        </div>
+                        <div class="row no-margin">
+                          <div class="col-4 no-padding">
+                              Phone No: 
+                          </div>
+                          <div class="col-8">
+                              {{object.Phone_no}} 
+                          </div>
+                      </div>
+                        
+                        <div class="row no-margin">
+                            <div class="col-4 no-padding">
+                                Purpose:
+                            </div>
+                            <div class="col-8">
+                                 {{object.purpose}}
+                            </div>
+                        </div>
+                        <div class="row no-margin">
+                            <div class="col-4 no-padding">
+                                Doctor Name: 
+                            </div>
+                            <div class="col-8">
+                                {{object.doctorName}} 
+                            </div>
+                        </div>
+                        <div class="row no-margin">
+                            <div class="col-4 no-padding">
+                                PatientHward: 
+                            </div>
+                            <div class="col-8">
+                            {{object.patientHward}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 no-padding">
+                    <div class="rit-data">
+                        <h3 style="text-align:right">MEDICAL HISTORY</h3>
+                        <br>
+                        <h4>BLOOD GROUP</h4>
+                        <ul>
+                            <li><b>{{object.Blood_Group}}</b>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="rit-data">
+                        <h4>GENOTYPE</h4>
+                        <ul>
+                            <li><b>{{object.Genotype}}</b></li>
+                            
+                        </ul>
+                    </div>
+                    <div class="rit-data">
+                        <h4>ALLEGIES</h4>
+                        <ul>
+                            <li><b>{{object.Allegies}}</b></li>
+                        </ul>
+                    </div>
+                    <div class="rit-data">
+                        <h4>ILLENESS</h4>
+                        <ul>
+                            <li><b>{{object.Illness}}</b></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="{% static 'assets/js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'assets/js/popper.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/js/script.js' %}"></script>
+
+<script src="{% static 'assets/bootstrap.bundle.min.js' %}"></script>
+</html>

@@ -1,0 +1,105 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EHR System</title>
+  <meta charset="utf-8">
+  
+  <link rel="stylesheet" href="{% static 'admin/datatables.min.css' %}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-image: url('bg-masthead.jpg');
+      height: 100%;
+    }
+
+    #imageContent {
+      position: fixed;
+      bottom : 40px;
+      right : 40px;
+    }
+
+    #imageDContent {
+      position: fixed;
+      bottom : 40px;
+      left : 50px;
+    }
+
+    #imageMContent {
+      center;
+      vertical-align: middle;
+    }
+
+    #mainContent {
+    height: 590px;
+	right: 50px;
+
+    
+}
+    /* Set black background color, white text and some padding */
+    footer {
+      color: black;
+      padding: 10px;
+      position:fixed;
+      bottom :0;
+      right:10px;
+      
+
+	
+    }
+h1, h3 {
+    font-family: 'Proxima Nova';
+}
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+
+    }
+
+  </style>
+</head>
+<body style="background-image: url({% static "articles/h.jpg" %});">
+
+    {% include 'nav.html' %}
+    {% block content %}
+
+    {% endblock content %}
+
+    </div>
+    <footer class="container-fluid text-center">
+      <p><h3 style="text-align:center">Nasim Tech</h3></p>
+    </footer>
+    
+
+    <script src="{% static 'admin/datatables.min.js' %}"></script>
+
+    <script>
+      (function ($) {
+        $('.clickable-row').css('cursor', 'pointer');
+        $(".clickable-row").click(function () {
+          window.location = $(this).data("href");
+        });
+      })(jQuery)
+  
+    </script>
+</body>
+</html>
