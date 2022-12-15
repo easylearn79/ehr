@@ -1,4 +1,5 @@
-<nav class="navbar navbar-inverse" style="background-color:black" >
+{% load static %}
+<nav class="navbar navbar-inverse" >
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -18,6 +19,7 @@
           <li><a href="{% url 'staffsignup' %}"><span class="glyphicon glyphicon-info-sign"></span>Card/Record-Unit</a></li>
           <li><a href="{% url 'consult' %}"><span class="glyphicon glyphicon-info-sign"></span> Consultant Unit</a></li>
           <li><a href="{% url 'stafflogin' %}"><span class="glyphicon glyphicon-log-in"></span> Pharmacy Unit</a></li>
+          <li><a href="{% url 'patientsignup' %}"><span class="glyphicon glyphicon-info-sign"></span> Laboratory Unit</a></li>
         </ul>   
       </div>
   

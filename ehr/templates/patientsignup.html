@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
+<link href="{% static 'assets/navbar.css' %}" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}" />
+
 <style>
   .gradient-custom {
     /* fallback for old browsers */
@@ -27,14 +31,18 @@
   <h3 style="color:black; text-align:center;"><big><b><i>ELECTRONIC HEALTH RECORD(EHR) ENCRYPTION SYSTEM</i></b></big></h3>
   <!-- <h5>         ...the cloud's agent</h5> -->
     <br>
-<div class="container" id="mainContent"  style="width:750px; height:720px";>
-      <h2>  </h2>
-  <form action="{% url 'patientsignup_view' %}" method="get" class="form-horizontal" role="form">{%csrf_token%}
-   {{form.as_p}}
-
-   <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="submit">SUBMIT</button>
-
+      <div>
+        <div class="md-light  rounded" >
+          <div class="col-sm-4 mx-auto">
+            <form action="{% url 'patientsignup_view' %}" method="get" class="form-horizontal" role="form">{%csrf_token%}
+              {{form.as_p}}
+              <input type="submit">
+          </form>
+          </div>
+        </div>
+      </div>
   </form>
 </div>
+<script src="{% static 'assets/bootstrap.bundle.min.js' %}"></script>
 
 {% endblock content %}

@@ -27,28 +27,20 @@ Allowed_Fields = []
 
 
 # Create your views here.
-def login_page(request):
-    if request.user.is_authenticated:
-        if request.user.user_type == '1':
-            return redirect(reverse("admin_home"))
-        elif request.user.user_type == '2':
-            return redirect(reverse("staff_home"))
-    return render(request, 'authfr/log.html')
+class LabView(ListView):
+    model=Laboratory
+    template_name = "lab.html"
 
 
-def doLogin(request, **kwargs):
-    # Authenticate
-    user = EmailBackend.authenticate(request, username=request.POST.get('email'), password=request.POST.get('password'))
-    if user != None:
-        login(request, user)
-        if user.user_type == '1':
-            return redirect(reverse(" "))
-        elif user.user_type == '2':
-            return redirect(reverse("staff_home"))
-    else:
-        messages.error(request, "Invalid details")
-        return redirect("home")
+def lab(request):
+    labs = Laboratory.objects.all()
+    return render(request, 'lab.html', {"labs":labs})
+    
 
+def drugview(request):
+    drug = Pharmacy.objects.all()
+    return render(request, 'drugview.html', {"drug":drug})
+    
 
 class SearchView(UnicornView):
     patient = ""
@@ -93,7 +85,6 @@ def patient_search(request):
     query = request.GET.get('q')
     if query:
         cons = cons.filter(
-            Q(id__icontains=query) |
             Q(patientName__icontains=query) |
             Q(doctorName__icontains=query) |
             Q(purpose__icontains=query)
@@ -219,6 +210,8 @@ class AddPatientView(CreateView):
     success_url = '/home/'
 
 from django.urls import reverse_lazy
+
+
 class AddPharmacyView(CreateView):
     form_class = PharmacyForm
     template_name = 'pharmacy.html'

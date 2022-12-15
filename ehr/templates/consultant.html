@@ -3,15 +3,12 @@
 
 {% block content %}
 
-  <div class="container-fluid bg-1 text-center" id="mainContent"  style="background-image: url({% static "articles/h.jpg" %});">
+  <div class="container-fluid bg-1 text-center" id="mainContent" >
     <h3 style="color:black;"><big><b><i>Consultant Unit</i></b></big></h3>
   <!-- <h5>         ...the cloud's agent</h5> -->
     <br>
     <br/>
-    <br/>
-    <br>
-    
-    <form action= "{% url 'patient_search' %}" method="get" class = "search-form">
+    <form action= "{% url 'patient_search' %}" class = "search-form">
         Patient ID <input type="text" name="q" placeholder="Patient ID"/>
         <input type="submit" name="submit" value="Search"/>
     </form>

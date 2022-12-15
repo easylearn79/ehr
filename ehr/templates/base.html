@@ -1,105 +1,123 @@
-{%load static%}
-<!DOCTYPE html>
+{% load static %}
+<!doctype html>
 <html lang="en">
+
 <head>
-  <title>EHR System</title>
-  <meta charset="utf-8">
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> </title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/navbars/">
+    <link href="{% static 'assets/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'assets/images/fav.jpg' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/fontawsom-all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}" />
+    <style>
+        .bd-placeholder-img {
+          font-size: 1.125rem;
+          text-anchor: middle;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+        }
   
-  <link rel="stylesheet" href="{% static 'admin/datatables.min.css' %}" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <style>
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      padding-top: 20px;
-      background-image: url('bg-masthead.jpg');
-      height: 100%;
-    }
-
-    #imageContent {
-      position: fixed;
-      bottom : 40px;
-      right : 40px;
-    }
-
-    #imageDContent {
-      position: fixed;
-      bottom : 40px;
-      left : 50px;
-    }
-
-    #imageMContent {
-      center;
-      vertical-align: middle;
-    }
-
-    #mainContent {
-    height: 590px;
-	right: 50px;
-
-    
-}
-    /* Set black background color, white text and some padding */
-    footer {
-      color: black;
-      padding: 10px;
-      position:fixed;
-      bottom :0;
-      right:10px;
-      
-
-	
-    }
-h1, h3 {
-    font-family: 'Proxima Nova';
-}
-    
-    /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
-      .sidenav {
-        height: auto;
-        padding: 15px;
-      }
-      .row.content {height:auto;} 
-
-    }
-
-  </style>
+        @media (min-width: 768px) {
+          .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+          }
+        }
+  
+        .b-example-divider {
+          height: 3rem;
+          background-color: rgba(0, 0, 0, .1);
+          border: solid rgba(0, 0, 0, .15);
+          border-width: 1px 0;
+          box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+  
+        .b-example-vr {
+          flex-shrink: 0;
+          width: 1.5rem;
+          height: 100vh;
+        }
+  
+        .bi {
+          vertical-align: -.125em;
+          fill: currentColor;
+        }
+  
+        .nav-scroller {
+          position: relative;
+          z-index: 2;
+          height: 2.75rem;
+          overflow-y: hidden;
+        }
+  
+        .nav-scroller .nav {
+          display: flex;
+          flex-wrap: nowrap;
+          padding-bottom: 1rem;
+          margin-top: -1px;
+          overflow-x: auto;
+          text-align: center;
+          white-space: nowrap;
+          -webkit-overflow-scrolling: touch;
+        }
+      </style>
+    <link href="{% static 'assets/navbar.css' %}" rel="stylesheet">
 </head>
 <body style="background-image: url({% static "articles/h.jpg" %});">
-
-    {% include 'nav.html' %}
-    {% block content %}
-
-    {% endblock content %}
-
-    </div>
-    <footer class="container-fluid text-center">
-      <p><h3 style="text-align:center">Nasim Tech</h3></p>
-    </footer>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-light rounded" aria-label="Eleventh navbar example">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'login' %}">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
     
+            <div class="collapse navbar-collapse" id="navbarsExample09">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'manage_patient' %}">Patient Files</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'staffsignup' %}">Staff Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'stafflogin' %}"> Staff Sign In</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'patientsignup' %}">Patient Sign Up</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'patientlogin' %}">Patient Sign In</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'consult' %}">Consultant Unit</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'list' %}">Pharmacy Unit</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'lab' %}">Pharmacy Unit</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+    
+        <div>
+          
+              {% block content %}
 
-    <script src="{% static 'admin/datatables.min.js' %}"></script>
+              {% endblock content %}
+            
+        </div>
+      </div>
+    
+  </div>
+  <script src="{% static 'assets/bootstrap.bundle.min.js' %}"></script>
 
-    <script>
-      (function ($) {
-        $('.clickable-row').css('cursor', 'pointer');
-        $(".clickable-row").click(function () {
-          window.location = $(this).data("href");
-        });
-      })(jQuery)
-  
-    </script>
 </body>
-</html>
+

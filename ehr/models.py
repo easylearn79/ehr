@@ -12,6 +12,7 @@ class PatientInfo(models.Model):
     GENDER = [("M", "Male"), ("F", "Female")]
     BLOOD_GROUP = [("A", "A+"), ("A", "A-"),("B+", "B+"), ("B-", "B-"),("O+", "O+"), ("O-", "O-"),("AB+", "AB+"), ("AB-", "AB-")]
     GENOTYPE = [("AA", "AA"), ("AS", "AS"),("AC", "AC"), ("SS", "SS"), ("G", "SC")]
+    MARITAL_STATUS = [("SINGLE", "SINGLE"), ("WIDOWED", "WIDOWED"), ("DIVORCED", "DIVORCED"), ("SEPARATED", "SEPARATED")]
     id = models.AutoField(primary_key=True)
     patientName = models.CharField(max_length=25, unique=True)
     patientPassword = models.TextField(max_length=25)
@@ -21,7 +22,7 @@ class PatientInfo(models.Model):
     patientHward = models.CharField(max_length=25)
     Date_of_Birth = models.DateField()
     Gender = models.CharField(max_length = 150,  choices=GENDER)
-    Marital_status = models.CharField(max_length=50)
+    Marital_status = models.CharField(max_length=50,  choices= MARITAL_STATUS)
     Blood_Group = models.CharField(max_length=100, choices=BLOOD_GROUP)
     Genotype = models.CharField(max_length=30,choices=GENOTYPE)
     Phone_no = models.IntegerField()

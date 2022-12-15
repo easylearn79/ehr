@@ -4,7 +4,7 @@
 {% block content %}
 
 
-  <div class="container">
+  <div class="container-fluid bg-1 text-center" id="mainContent"  style="background-image: url({% static "articles/a.jpg" %});">
     <h3 style="color:black;"><big><b><i>ELECTRONIC HEALTH RECORD(EHR) ENCRYPTION SYSTEM</i></b></big></h3>
   <!-- <h5>         ...the cloud's agent</h5> -->
     <br>
@@ -24,21 +24,17 @@
                                     <tr >
                                         <p align="right"> <a href="#" class="btn btn-tool" style="color: #4CAF50;" onclick="window.print()" ><b>Print</b></a></p>
                                         <th>Patient ID</th>
-                                        <th>Patient Name</th>
-                                        <th>Purpose</th>
-                                        <th>Doctor Name</th>
-                                        <th>Patient Hward</th>
+                                        <th>Result</th>
+                                        <th>Sample Type</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for p in patient %}
-                                    <tr class='clickable-row' data-href="{% url 'patient-detail' p.id %}">
-                                        <td>{{ p.id}}</td>
-                                        <td>{{p.patientName}}</td>
-                                        <td>{{ p.purpose}}</td>
-                                        <td>{{ p.doctorName}}</td>
-                                        <td>{{ p.patientHward}}</td>
-                                    {% endfor %}
+                                    {% for p in labs %}
+                                    <tr class='clickable-row' data-href="#">
+                                        <td>{{ p.patient_id.patient_id}}</td>
+                                        <td>{{ p.result.result}}</td>
+                                        <td>{{ p.sample_type.sample_type}}</td>
+                                    {%endfor%}
                                 </tbody>
                             </table>
                         </div>

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<div class="container" id="h1" style="background-image: url({% static "articles/h.jpg" %});">
+<div class="container" id="h1">
         {% with queryset.count as total_queryset %}
         Found {{ total_queryset }} result{{ total_queryset|pluralize }}
         {% endwith %}

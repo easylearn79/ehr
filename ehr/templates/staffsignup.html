@@ -5,71 +5,74 @@
 <h3 style="color:black; text-align:center;"><big><b><i>ELECTRONIC HEALTH RECORD(EHR) ENCRYPTION SYSTEM</i></b></big></h3>
   <!-- <h5>         ...the cloud's agent</h5> -->
     <br>
-<div class="container" id="mainContent"  style="width:750px; height:720px";>
+<div class="container" id="mainContent"  style="width:850px; height:820px";>
   <h2>  </h2>
-  <form action="{% url 'manage_patient' %}" method="get" class="form-horizontal" role="form">
-    <div class="form-group mx-auto rounded">
-      <label class="control-label col-sm-2" for="uid">User ID:</label>
-      <div class="col-sm-6">
-        <input type="text" oninput = "auth()" class="form-control" name="uid" placeholder="Enter User ID">
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="username">User Name:</label>
-      <div class="col-sm-6">
-        <input type="text" oninput = "auth()" class="form-control" name="username" placeholder="Enter User Name">
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="password">Password:</label>
-      <div class="col-sm-6">          
-        <input type="password" class="form-control" name="password" placeholder="Enter password">
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="role">Role:</label>
-      <div class="col-sm-6">          
-        <input type="text" class="form-control" name="role" placeholder="Enter User Role">
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="certification">Certification:</label>
-      <div class="col-sm-6">          
-        <input type="text" class="form-control" name="certification" placeholder="Enter User Certification">
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="specialization">Specialization:</label>
-      <div class="col-sm-6">          
-        <input type="text" class="form-control" name="specialization" placeholder="Enter User Specialization">
-      </div>
-    </div>
-
-    <div class="md-light rounded">
-      <label class="control-label col-sm-2" for="hward">Hospital Wing:</label>
-      <div class="col-sm-6">          
-        <input type="text" class="form-control" name="hward" placeholder="Enter Hospital Wing">
-      </div>
-    </div>
-
-    <div class="form-group">        
-      <div class="col-sm-offset-2 col-sm-10">
-        <div class="checkbox">
-          <label><input type="checkbox"> Remember me</label>
+<div class="  rounded" >
+    <div class="col-sm-8 mx-auto">
+      <form action="{% url 'manage_patient' %}" method="get" class="form-horizontal" role="form">
+        <div class="form-group mx-auto rounded">
+          <label class="control-label col-sm-4" for="uid">User ID:</label>
+          <div class="col-sm-8">
+            <input type="text" oninput = "auth()" class="form-control" name="uid" placeholder="Enter User ID">
+          </div>
         </div>
-      </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-4" for="username">User Name:</label>
+          <div class="col-sm-8">
+            <input type="text" oninput = "auth()" class="form-control" name="username" placeholder="Enter User Name">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-4" for="password">Password:</label>
+          <div class="col-sm-8">          
+            <input type="password" class="form-control" name="password" placeholder="Enter password">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-4" for="role">Role:</label>
+          <div class="col-sm-8">          
+            <input type="text" class="form-control" name="role" placeholder="Enter User Role">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-4" for="certification">Certification:</label>
+          <div class="col-sm-8">          
+            <input type="text" class="form-control" name="certification" placeholder="Enter User Certification">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-4" for="specialization">Specialization:</label>
+          <div class="col-sm-8">          
+            <input type="text" class="form-control" name="specialization" placeholder="Enter User Specialization">
+          </div>
+        </div>
+
+        <div class="md-light rounded">
+          <label class="control-label col-sm-4" for="hward">Hospital Wing:</label>
+          <div class="col-sm-8">          
+            <input type="text" class="form-control" name="hward" placeholder="Enter Hospital Wing">
+          </div>
+        </div>
+
+        <div class="form-group">        
+          <div class="col-sm-offset-2 col-sm-10">
+            <div class="checkbox">
+              <label><input type="checkbox"> Remember me</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">        
+          <div class="col-sm-offset-2 col-sm-4">
+          <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+          </div>
+        </div>
+      </form>
     </div>
-    <div class="form-group">        
-      <div class="col-sm-offset-2 col-sm-4">
-       <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
-      </div>
-    </div>
-  </form>
 </div>
 
 {% endblock content %}
